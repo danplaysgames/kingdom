@@ -158,8 +158,8 @@ package
         public var birds:FlxSound = null;
         
         // Cheatvars
-        private var cheatNoTrolls:Boolean = false;
-        private var untouchable:Boolean = false;
+        private var cheatNoTrolls:Boolean = true;
+        private var untouchable:Boolean = true;
 
         public function PlayState(progress:String=null){
             super();
@@ -430,7 +430,6 @@ package
             FlxG.collide(level, trolls);
             FlxG.collide(level, trollsNoCollide);
             FlxG.collide(level, gibs);
-            FlxG.collide(trolls, trolls);
             FlxG.overlap(trolls, walls, this.trollWall);
             FlxG.overlap(trollsNoCollide, walls, this.trollWall);
             FlxG.overlap(arrows, trolls, this.trollShot);
@@ -667,7 +666,7 @@ package
         public function phaseFirst():void{
             beggars.add( new Citizen (kingdomRight+580, 0)); 
             beggars.add( new Citizen (kingdomRight+600, 0));
-            minBeggars = 2;
+            minBeggars = 5;
         }
         public function phaseBeforeNightOne():void{
             showText("Night comes, be careful."); 
